@@ -1,0 +1,6 @@
+[submodule "webapp"]
+	path = webapp
+	url = https://github.com/bubusuke/webcrawler-service-webapp.git
+[submodule "job"]
+	path = job
+	url = https://github.com/bubusuke/webcrawler-service-job.git

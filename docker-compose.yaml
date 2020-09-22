@@ -5,14 +5,25 @@ services:
     volumes:
       - ./initdb.d:/docker-entrypoint-initdb.d
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
     ports:
       - 5432:5432
-    networks: 
-      - app-net
     restart: always
+    container_name: postgres_db
+  job:
+    build: ./job
+    environment:
+      - URL_FOLIO=https://folio-sec.com/theme
+      - JOB_INTERVAL_SEC=1800
+      - DB_HOST=postgres_db
+      - DB_PORT=5432
+      - DB_DATABASE_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=pass
+    restart: always
+    depends_on:
+      - db
   
-  crawler:
-    
+

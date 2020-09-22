@@ -21,16 +21,19 @@ docker-compose up -d
 *But we don't have to warry because the Job set data soon.*
 
 ### Environments
-| System     | Name              | Default Value               | Description              |
-| :--------- | :---------------- | :-------------------------- | :----------------------- |
-| Webapp     | APP_PORT          | 8080                        | Web application port.    |
-| Webapp     | GIN_MODE          | debug                       | GIN flamework log level. |
-| Job        | URL_FOLIO         | https://folio-sec.com/theme | Crawling target.         |
-| Webapp/Job | DB_HOST           | localhost                   | DB connect parameter.    |
-| Webapp/Job | DB_PORT           | 5432                        | DB connect parameter.    |
-| Webapp/Job | DB_DATABASE_NAME  | postgres                    | DB connect parameter.    |
-| Webapp/Job | DB_USER           | postgres                    | DB connect parameter.    |
-| Webapp/Job | DB_PASSWORD       | ******                      | DB connect parameter.    |
-| DB         | POSTGRES_DB       | postgres                    | DB running parameter.    |
-| DB         | POSTGRES_USER     | postgres                    | DB running parameter.    |
-| DB         | POSTGRES_PASSWORD | ******                      | DB running parameter.    |
+| System     | Name              | Default Value ( * )           | Description              |
+| :--------- | :---------------- | :---------------------------- | :----------------------- |
+| Webapp     | APP_PORT          | 8080                          | Web application port.    |
+| Webapp     | GIN_MODE          | debug                         | GIN flamework log level. |
+| Job        | URL_FOLIO         | https://folio-sec.com/theme   | Crawling target.         |
+| Job        | JOB_INTERVAL_SEC  | 60                            | Job cycle.               |
+| Webapp/Job | DB_HOST           | localhost                     | DB connect parameter.    |
+| Webapp/Job | DB_PORT           | 5432                          | DB connect parameter.    |
+| Webapp/Job | DB_DATABASE_NAME  | postgres                      | DB connect parameter.    |
+| Webapp/Job | DB_USER           | postgres                      | DB connect parameter.    |
+| Webapp/Job | DB_PASSWORD       | ******                        | DB connect parameter.    |
+| DB         | POSTGRES_DB       | postgres                      | DB running parameter.    |
+| DB         | POSTGRES_USER     | postgres                      | DB running parameter.    |
+| DB         | POSTGRES_PASSWORD | DEFAULT IS NOTHING. MUST SET. | DB running parameter.    |
+* Default Value is the value defined in applicatoin source files.
+* On [Docker compose](https://github.com/bubusuke/webcrawler-service/blob/master/docker-compose.yaml), some values are different from Default Value.

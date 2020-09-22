@@ -3,6 +3,8 @@
 ## Overview
 It is a service that delivers web crawled data.
 
+Folio's Theme We deliver investment service themes and stocks for each theme.
+
 ![system_overview.png](https://github.com/bubusuke/webcrawler-service/blob/master/doc/system_overview.png)
 
 | System | Description                                                                                 |

@@ -25,5 +25,18 @@ services:
     restart: always
     depends_on:
       - db
-  
-
+  webapp:
+    build: ./webapp
+    environment:
+      - APP_HOST=8080
+      - GIN_MODE=release
+      - DB_HOST=postgres_db
+      - DB_PORT=5432
+      - DB_DATABASE_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=pass
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db

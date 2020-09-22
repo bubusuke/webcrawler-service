@@ -1,0 +1,21 @@
+@startuml
+
+autonumber
+participant client as cl
+participant webapp as wb
+database database as db
+participant job as jb
+participant external_website as ew
+
+== OFFLINE(Interval Job) ==
+loop
+  jb <-> ew: Web crawling.
+  jb -> db: Save results \n(Delete-Insert). 
+  jb -> jb: Wait some time.
+end
+== ONLINE(Web App) ==
+cl -> wb: Request.
+wb <-> db: Read.
+wb -> cl: Response.
+
+@enduml

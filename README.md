@@ -15,7 +15,7 @@ Folio's Theme We deliver investment service themes and stocks for each theme.
 
 ## How to Build and Run
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 *The data of DB is reset every build.*
 *But we don't have to warry because the Job set data soon.*

@@ -13,12 +13,26 @@ Folio's Theme We deliver investment service themes and stocks for each theme.
 | Job    | The role is Web-crawling and parsing, and saving to DB. The process is executed intervally. |
 | Webapp | The role is web-app server.                                                                 |
 
-## How to Build and Run
-```
+## How to Build and Deployment
+### First Build and Deployment
+```sh
 docker-compose up -d --build
 ```
-*The data of DB is reset every build.*
-*But we don't have to warry because the Job set data soon.*
+**!!!REMARKS!!!**
+* The Job starts web crawling as soon as it is deployed.
+* **You will not be able to see the information on the website for a few minutes before the Job finishes.**
+* **It happens when you initially build or delete and recreate the DB container.**
+* Since the Job DELETE-INSERTs all DB data, so we don't have to persist DB data.
+
+### Second and Subsequent Times (build deployment other than DB)
+Build and deploy other than DB.
+```sh
+# Build
+docker-compose build --no-cache webapp job
+# Deployment
+docker-compose up -d
+```
+
 
 ### Environments
 | System     | Name              | Default Value ( * )           | Description              |
